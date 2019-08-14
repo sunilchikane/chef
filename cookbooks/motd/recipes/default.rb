@@ -4,7 +4,7 @@ template   '/etc/motd' do
   group 'root'
   mode '0644'
  variables({
-	:hostname => node['hostname'],
-	:ipaddress => node['ipaddress']
+	:hostname => node['fqdn'],
+	:ip => node['ipaddress'],
 })
 end
