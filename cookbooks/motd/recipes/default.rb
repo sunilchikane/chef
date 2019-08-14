@@ -3,5 +3,8 @@ template   '/etc/motd' do
   owner 'root'
   group 'root'
   mode '0644'
- variables(Hostname: node['fqdn'])
+ variables({
+	:hostname => node['hostname'],
+	:ipaddress => node['ipaddress']
+})
 end
