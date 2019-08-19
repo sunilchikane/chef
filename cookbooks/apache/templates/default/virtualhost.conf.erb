@@ -1,0 +1,26 @@
+<VirtualHost  <%= @ip %>:80>
+    ServerName <%= @ip %>
+
+    CustomLog "|/usr/sbin/cronolog /etc/httpd/logs/%Y%m%d_forms_access_log" SCJAVA_LOG_FORMAT
+    ErrorLog "|/usr/sbin/cronolog  /etc/httpd/logs/%Y%m%d_forms_error_log"
+
+</VirtualHost>
+
+<VirtualHost  <%= @ip %>:443>
+    ServerName <%= @ip %> 
+
+
+   CustomLog "|/usr/sbin/cronolog /etc/httpd/logs/%Y%m%d_forms_ssl_access_log" SCJAVA_LOG_FORMAT
+    ErrorLog "|/usr/sbin/cronolog /etc/httpd/logs/%Y%m%d_forms_ssl_error_log"
+    
+SSLEngine on
+SSLProxyEngine on
+
+
+#SSLCertificateKeyFile  /certificates/forms/test.key
+#SSLCertificateFile certificates/forms/test.crt
+#SSLCACertificateFile ertificates/forms/test.crt
+  
+
+</VirtualHost>
+
